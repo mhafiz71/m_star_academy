@@ -3,8 +3,130 @@
 {% block title %}Application Success - Morning Star Academy{% endblock %}
 
 {% block content %}
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold text-center mb-8">Application Submitted Successfully</h1>
-    <p class="text-center text-gray-600">Success page will be implemented in Task 7</p>
-</div>
+{% if error %}
+<!-- Error State -->
+<section class="py-16 bg-red-50">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+                    </path>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Error</h1>
+            <p class="text-lg text-gray-600 mb-8">{{ error }}</p>
+            <a href="{% url 'applications:apply' %}" class="btn-primary">
+                Return to Application Form
+            </a>
+        </div>
+    </div>
+</section>
+{% else %}
+<!-- Success State -->
+<section class="py-16 bg-green-50">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <!-- Success Icon -->
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Application Submitted Successfully!</h1>
+
+            <p class="text-lg text-gray-600 mb-8">
+                Thank you for applying to Morning Star Academy. Your application has been received and is being
+                reviewed.
+            </p>
+
+            {% if reference_number %}
+            <!-- Reference Number Display -->
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+                <h2 class="text-xl font-semibold text-blue-900 mb-2">Your Reference Number</h2>
+                <div class="text-2xl font-bold text-blue-600 font-mono">{{ reference_number }}</div>
+                <p class="text-sm text-blue-700 mt-2">
+                    Please save this reference number for your records. You will need it for any future correspondence.
+                </p>
+            </div>
+            {% endif %}
+
+            {% if application %}
+            <!-- Application Summary -->
+            <div class="bg-gray-50 rounded-lg p-6 mb-8 text-left">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Application Summary</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                        <span class="font-medium text-gray-700">Student Name:</span>
+                        <span class="text-gray-600">{{ application.student_full_name }}</span>
+                    </div>
+                    <div>
+                        <span class="font-medium text-gray-700">Grade Applying For:</span>
+                        <span class="text-gray-600">{{ application.get_grade_applying_for_display }}</span>
+                    </div>
+                    <div>
+                        <span class="font-medium text-gray-700">Guardian:</span>
+                        <span class="text-gray-600">{{ application.guardian_full_name }}</span>
+                    </div>
+                    <div>
+                        <span class="font-medium text-gray-700">Submission Date:</span>
+                        <span class="text-gray-600">{{ application.created_at|date:"F d, Y" }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Next Steps -->
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold text-yellow-900 mb-3">What Happens Next?</h3>
+                <div class="text-left text-sm text-yellow-800 space-y-2">
+                    <div class="flex items-start">
+                        <div
+                            class="w-6 h-6 bg-yellow-200 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                            <span class="text-xs font-bold text-yellow-800">1</span>
+                        </div>
+                        <p>Our admissions team will review your application within 3-5 business days.</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div
+                            class="w-6 h-6 bg-yellow-200 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                            <span class="text-xs font-bold text-yellow-800">2</span>
+                        </div>
+                        <p>You will receive an email notification regarding the status of your application.</p>
+                    </div>
+                    <div class="flex items-start">
+                        <div
+                            class="w-6 h-6 bg-yellow-200 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                            <span class="text-xs font-bold text-yellow-800">3</span>
+                        </div>
+                        <p>If approved, we will contact you with enrollment information and next steps.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{% url 'core:home' %}" class="btn-primary">
+                    Return to Home
+                </a>
+                <a href="{% url 'core:about' %}" class="btn-secondary">
+                    Learn More About Us
+                </a>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="mt-8 pt-6 border-t border-gray-200">
+                <p class="text-sm text-gray-600">
+                    Questions about your application? Contact us at
+                    <a href="mailto:info@morningstaracademy.edu.gh" class="text-blue-600 hover:text-blue-800">
+                        info@morningstaracademy.edu.gh
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </section>
+    {% endif %}
 {% endblock %}

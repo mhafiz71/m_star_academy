@@ -8,5 +8,5 @@ app_name = 'applications'
 
 urlpatterns = [
     path('', views.ApplicationCreateView.as_view(), name='apply'),
-    path('success/<str:ref_id>/', views.ApplicationSuccessView.as_view(), name='success'),
+    path('success/<str:ref_number>/', views.ApplicationSuccessView.as_view(), name='success'),
 ]
