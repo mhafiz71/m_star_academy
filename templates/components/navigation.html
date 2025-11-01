@@ -1,0 +1,22 @@
+<!-- Navigation placeholder - will be implemented in Task 3 -->
+<nav class="bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-blue-600">Morning Star Academy</h1>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="{% url 'core:home' %}"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                <a href="{% url 'applications:apply' %}"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Apply</a>
+                <a href="{% url 'core:about' %}"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                {% if user.is_staff %}
+                <a href="{% url 'administration:dashboard' %}"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Admin</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

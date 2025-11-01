@@ -23,9 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-317gvf*yb$of8e%%1g19lzdcuw@l7r*u^u#nyo7x5p@md&i=y_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG and ALLOWED_HOSTS are set in environment-specific settings
 
 
 # Application definition
@@ -40,6 +38,10 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+    # Custom apps
+    'core',
+    'applications',
+    'administration',
 ]
 
 MIDDLEWARE = [
@@ -75,14 +77,7 @@ WSGI_APPLICATION = 'morning_star_academy.wsgi.application'
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 # Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# Database configuration is set in environment-specific settings
 
 
 # Password validation

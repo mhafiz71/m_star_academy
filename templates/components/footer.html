@@ -1,0 +1,27 @@
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Morning Star Academy</h3>
+                <p class="text-gray-300">Quality education for a brighter future.</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                <p class="text-gray-300">Tamale, Gbanyamli</p>
+                <p class="text-gray-300">Near Kesmi FM</p>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="{% url 'core:home' %}" class="text-gray-300 hover:text-white">Home</a></li>
+                    <li><a href="{% url 'core:about' %}" class="text-gray-300 hover:text-white">About</a></li>
+                    <li><a href="{% url 'applications:apply' %}" class="text-gray-300 hover:text-white">Apply</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-300">&copy; 2024 Morning Star Academy. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
