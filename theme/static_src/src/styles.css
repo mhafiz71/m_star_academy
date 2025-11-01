@@ -3,9 +3,53 @@
 
 /**
   * A catch-all path to Django template files, JavaScript, and Python files
-  * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
-  *
-  * If your final CSS file is not being updated after code changes, you may want to broaden or narrow
-  * the scope of this path.
+    * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
   */
 @source "../../../**/*.{html,py,js}";
+
+/* Custom Navigation Styles */
+@layer components {
+  .nav-link {
+    @apply text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  }
+
+  .nav-link.active {
+    @apply text-blue-600 bg-blue-50 font-semibold;
+  }
+
+  .nav-link.admin-link {
+    @apply bg-blue-600 text-white hover:bg-blue-700 hover:text-white;
+  }
+
+  .nav-link.admin-link.active {
+    @apply bg-blue-700 text-white;
+  }
+
+  .mobile-nav-link {
+    @apply block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200;
+  }
+
+  .mobile-nav-link.active {
+    @apply text-blue-600 bg-blue-50 font-semibold;
+  }
+
+  .mobile-nav-link.admin-link {
+    @apply bg-blue-600 text-white hover:bg-blue-700 hover:text-white;
+  }
+
+  .mobile-nav-link.admin-link.active {
+    @apply bg-blue-700 text-white;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded transition-colors duration-200;
+  }
+
+  .form-input {
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500;
+  }
+}
