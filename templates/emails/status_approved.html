@@ -1,0 +1,82 @@
+{% extends 'emails/base.html' %}
+
+{% block title %}Application Approved - Morning Star Academy{% endblock %}
+
+{% block content %}
+<h2 style="color: #059669; margin-bottom: 20px;">🎉 Congratulations! Your Application Has Been Approved!</h2>
+
+<p>Dear {{ application.guardian_full_name }},</p>
+
+<p>We are delighted to inform you that <strong>{{ application.student_full_name }}</strong>'s application to Morning
+    Star Academy has been <strong style="color: #059669;">APPROVED</strong>!</p>
+
+<div class="highlight-box" style="background-color: #d1fae5; border-left-color: #059669;">
+    <h3 style="margin-top: 0; color: #059669;">Application Approved</h3>
+    <p style="margin-bottom: 0;"><strong>Reference Number:</strong> <span class="reference-number">{{
+            application.reference_number }}</span></p>
+    <p style="margin-bottom: 0;"><strong>Grade:</strong> {{ application.get_grade_applying_for_display }}</p>
+    <p style="margin-bottom: 0;"><strong>Academic Year:</strong> 2024/2025</p>
+</div>
+
+<h3 style="color: #1e40af;">Welcome to the Morning Star Academy Family!</h3>
+<p>We are excited to welcome {{ application.student_first_name }} to our school community. Our dedicated team of
+    educators is committed to providing quality education and nurturing your child's academic and personal growth.</p>
+
+<h3 style="color: #1e40af;">Next Steps - Enrollment Process</h3>
+<p>To complete the enrollment process, please follow these important steps:</p>
+
+<ol style="padding-left: 20px; line-height: 1.8;">
+    <li><strong>Visit the School:</strong> Please visit our campus within <strong>7 days</strong> to complete the
+        enrollment formalities.</li>
+    <li><strong>Required Documents:</strong> Bring the following documents:
+        <ul style="margin-top: 8px; padding-left: 20px;">
+            <li>Birth certificate (original and photocopy)</li>
+            <li>Previous school report cards (if applicable)</li>
+            <li>Passport-size photographs (4 copies)</li>
+            <li>Guardian's identification document</li>
+            <li>Proof of residence</li>
+        </ul>
+    </li>
+    <li><strong>School Fees:</strong> Information about fees and payment options will be provided during your visit.
+    </li>
+    <li><strong>School Uniform:</strong> Details about uniform requirements and suppliers will be shared.</li>
+    <li><strong>Orientation:</strong> We will schedule an orientation session for both you and {{
+        application.student_first_name }}.</li>
+</ol>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="tel:{{ school_phone|default:'+233XXXXXXXXX' }}" class="btn">Call Us to Schedule Visit</a>
+    <a href="mailto:{{ school_email }}" class="btn btn-secondary">Email Us</a>
+</div>
+
+<h3 style="color: #1e40af;">Important Information</h3>
+<div class="highlight-box">
+    <h4 style="margin-top: 0;">School Location & Contact</h4>
+    <p><strong>Address:</strong> Tamale, Gbanyamli, Northern Region<br>
+        <strong>Landmark:</strong> Near Kesmi FM Radio Station<br>
+        <strong>Phone:</strong> {{ school_phone|default:'+233 XX XXX XXXX' }}<br>
+        <strong>Email:</strong> {{ school_email }}<br>
+        <strong>Office Hours:</strong> Monday - Friday, 8:00 AM - 4:00 PM
+    </p>
+</div>
+
+<div class="highlight-box" style="background-color: #fef3c7; border-left-color: #f59e0b;">
+    <h4 style="margin-top: 0; color: #92400e;">⏰ Important Deadline</h4>
+    <p style="margin-bottom: 0; color: #92400e;">
+        Please complete the enrollment process within <strong>7 days</strong> to secure {{
+        application.student_first_name }}'s place for the upcoming academic year.
+    </p>
+</div>
+
+<p>We look forward to meeting you and {{ application.student_first_name }} soon. If you have any questions or need
+    assistance, please don't hesitate to contact us.</p>
+
+<p style="margin-top: 30px;">
+    Congratulations once again, and welcome to Morning Star Academy!<br><br>
+
+    Warm regards,<br>
+    <strong>The Admissions Team</strong><br>
+    Morning Star Academy<br>
+    <em>"Quality Education for a Brighter Future"</em>
+</p>
+{% endblock %}

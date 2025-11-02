@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Morning Star Academy{% endblock %}</title>
+    <style>
+        /* Email-safe CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .school-logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .school-tagline {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .email-content {
+            padding: 30px 20px;
+        }
+
+        .email-footer {
+            background-color: #f8fafc;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #1e40af;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background-color: #6b7280;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4b5563;
+        }
+
+        .highlight-box {
+            background-color: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .reference-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 18px;
+            color: #1e40af;
+            background-color: #f0f9ff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .contact-info {
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .contact-info a {
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e5e7eb;
+            margin: 20px 0;
+        }
+
+        /* Responsive styles */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .email-content {
+                padding: 20px 15px;
+            }
+
+            .email-header {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <div class="school-logo">Morning Star Academy</div>
+            <div class="school-tagline">Quality Education for a Brighter Future</div>
+        </div>
+
+        <!-- Content -->
+        <div class="email-content">
+            {% block content %}
+            <!-- Email content goes here -->
+            {% endblock %}
+        </div>
+
+        <!-- Footer -->
+        <div class="email-footer">
+            <div class="contact-info">
+                <strong>Morning Star Academy</strong><br>
+                Tamale, Gbanyamli, Northern Region, Ghana<br>
+                Near Kesmi FM Radio Station<br><br>
+
+                <strong>Contact Us:</strong><br>
+                Email: <a href="mailto:{{ school_email|default:'info@morningstaracademy.edu.gh' }}">{{
+                    school_email|default:'info@morningstaracademy.edu.gh' }}</a><br>
+                Phone: {{ school_phone|default:'+233 XX XXX XXXX' }}<br>
+                Website: <a href="{{ school_website|default:'https://morningstaracademy.edu.gh' }}">{{
+                    school_website|default:'morningstaracademy.edu.gh' }}</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="contact-info">
+                &copy; {{ current_year|default:'2024' }} Morning Star Academy. All rights reserved.<br>
+                This email was sent regarding your application to Morning Star Academy.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

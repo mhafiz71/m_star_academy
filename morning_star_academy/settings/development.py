@@ -1,25 +1,20 @@
-"""
-Development settings for Morning Star Academy project.
-"""
+from decouple import config, Csv
+import dj_database_url
+import os
 from .base import *
 
-# Development-specific settings
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
-# Database for development
+DATABASE_URL = config('DATABASE_URL', default='sqlite:///db.sqlite3')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(DATABASE_URL)
 }
 
-# Email backend for development
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.console.EmailBackend')
 
-# Add security middleware for development testing
+if EMAIL_BACKEND == 'django.core.mail.backends.filebased.EmailBackend':
+    EMAIL_FILE_PATH = config('EMAIL_FILE_PATH', default='tmp/app-messages')
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'core.middleware.SecurityHeadersMiddleware',
@@ -35,10 +30,15 @@ MIDDLEWARE = [
     'django_browser_reload.middleware.BrowserReloadMiddleware',
 ]
 
-# Cache for rate limiting
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         'LOCATION': 'unique-snowflake',
+        'TIMEOUT': CACHE_TIMEOUT,
     }
 }
+
+LOGGING['handlers']['console']['level'] = 'DEBUG'
+LOGGING['loggers']['django']['level'] = 'INFO'
+
+os.makedirs(os.path.dirname(LOG_FILE_PATH), exist_ok=True)

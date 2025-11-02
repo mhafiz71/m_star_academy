@@ -1,0 +1,73 @@
+{% extends 'emails/base.html' %}
+
+{% block title %}Verify Your Email - Morning Star Academy{% endblock %}
+
+{% block content %}
+<h2 style="color: #1e40af; margin-bottom: 20px;">📧 Please Verify Your Email Address</h2>
+
+<p>Dear {{ application.guardian_full_name }},</p>
+
+<p>Thank you for submitting an application for <strong>{{ application.student_full_name }}</strong> to Morning Star
+    Academy. To complete your application process, we need to verify your email address.</p>
+
+<div class="highlight-box">
+    <h3 style="margin-top: 0; color: #1e40af;">Application Details</h3>
+    <p><strong>Reference Number:</strong> <span class="reference-number">{{ application.reference_number }}</span></p>
+    <p><strong>Student:</strong> {{ application.student_full_name }}</p>
+    <p><strong>Grade Applied For:</strong> {{ application.get_grade_applying_for_display }}</p>
+    <p style="margin-bottom: 0;"><strong>Email to Verify:</strong> {{ application.guardian_email }}</p>
+</div>
+
+<h3 style="color: #1e40af;">Why Do We Need Email Verification?</h3>
+<p>Email verification helps us ensure that:</p>
+<ul style="padding-left: 20px; line-height: 1.6;">
+    <li>We can reach you with important updates about your application</li>
+    <li>Your application information is secure and accurate</li>
+    <li>You receive timely notifications about admission decisions</li>
+    <li>We can send you important school information and updates</li>
+</ul>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="#" class="btn" style="font-size: 16px; padding: 12px 24px;">
+        ✅ Verify Email Address
+    </a>
+</div>
+
+<div class="highlight-box" style="background-color: #fef3c7; border-left-color: #f59e0b;">
+    <h4 style="margin-top: 0; color: #92400e;">⏰ Important</h4>
+    <p style="margin-bottom: 0; color: #92400e;">
+        Please verify your email within <strong>48 hours</strong> to ensure your application is processed without delay.
+    </p>
+</div>
+
+<h3 style="color: #1e40af;">Having Trouble?</h3>
+<p>If you're having trouble with email verification:</p>
+<ul style="padding-left: 20px; line-height: 1.6;">
+    <li>Check your spam/junk folder</li>
+    <li>Make sure {{ application.guardian_email }} is correct</li>
+    <li>Contact us directly if you need assistance</li>
+    <li>Try clicking the verification link from a different device or browser</li>
+</ul>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="mailto:{{ school_email }}" class="btn btn-secondary">Contact Support</a>
+    <a href="tel:{{ school_phone|default:'+233XXXXXXXXX' }}" class="btn btn-secondary">Call Us</a>
+</div>
+
+<p>Once your email is verified, we'll be able to keep you updated on your application status and send you important
+    information about Morning Star Academy.</p>
+
+<p style="margin-top: 30px;">
+    Thank you for choosing Morning Star Academy for {{ application.student_first_name }}'s education.<br><br>
+
+    Best regards,<br>
+    <strong>The Admissions Team</strong><br>
+    Morning Star Academy<br>
+    <em>"Quality Education for a Brighter Future"</em>
+</p>
+
+<p style="font-size: 12px; color: #6b7280; margin-top: 20px;">
+    If you did not submit an application to Morning Star Academy, please ignore this email or contact us at {{
+    school_email }}.
+</p>
+{% endblock %}

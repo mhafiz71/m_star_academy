@@ -1,0 +1,61 @@
+{% extends 'emails/base.html' %}
+
+{% block title %}Application Update - Morning Star Academy{% endblock %}
+
+{% block content %}
+<h2 style="color: #1e40af; margin-bottom: 20px;">Application Status Update</h2>
+
+<p>Dear {{ application.guardian_full_name }},</p>
+
+<p>Thank you for your interest in Morning Star Academy and for submitting an application for <strong>{{
+        application.student_full_name }}</strong>. We appreciate the time and effort you invested in the application
+    process.</p>
+
+<div class="highlight-box">
+    <h3 style="margin-top: 0; color: #1e40af;">Application Status</h3>
+    <p><strong>Reference Number:</strong> <span class="reference-number">{{ application.reference_number }}</span></p>
+    <p><strong>Student:</strong> {{ application.student_full_name }}</p>
+    <p><strong>Grade Applied For:</strong> {{ application.get_grade_applying_for_display }}</p>
+    <p style="margin-bottom: 0;"><strong>Status:</strong> <span style="color: #dc2626; font-weight: bold;">Application
+            Not Approved</span></p>
+</div>
+
+<h3 style="color: #1e40af;">Our Decision</h3>
+<p>After careful consideration of all applications received, we regret to inform you that we are unable to offer {{
+    application.student_first_name }} a place at Morning Star Academy for the current admission cycle.</p>
+
+<p>This decision was not made lightly. We received many excellent applications from qualified students, and
+    unfortunately, our limited capacity means we cannot accommodate all deserving candidates.</p>
+
+<h3 style="color: #1e40af;">This Does Not Reflect on Your Child's Potential</h3>
+<p>Please know that this decision does not reflect negatively on {{ application.student_first_name }}'s abilities,
+    potential, or worth. Every child is unique and has their own path to success. We encourage you to continue
+    supporting {{ application.student_first_name }}'s educational journey.</p>
+
+<h3 style="color: #1e40af;">Future Opportunities</h3>
+<p>We would like to encourage you to consider the following options:</p>
+
+<ul style="padding-left: 20px; line-height: 1.6;">
+    <li><strong>Future Applications:</strong> You are welcome to apply again in future admission cycles.</li>
+    <li><strong>Waiting List:</strong> If a place becomes available during the academic year, we may contact families
+        who have expressed continued interest.</li>
+    <li><strong>Other Opportunities:</strong> We occasionally have openings in different grade levels throughout the
+        year.</li>
+</ul>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="mailto:{{ school_email }}" class="btn">Contact Us</a>
+    <a href="tel:{{ school_phone|default:'+233XXXXXXXXX' }}" class="btn btn-secondary">Call Us</a>
+</div>
+
+<p>We wish {{ application.student_first_name }} all the best in their educational journey and hope that they will find
+    an excellent school that is the right fit for their needs and aspirations.</p>
+
+<p style="margin-top: 30px;">
+    With warm regards and best wishes,<br><br>
+
+    <strong>The Admissions Team</strong><br>
+    Morning Star Academy<br>
+    <em>"Quality Education for a Brighter Future"</em>
+</p>
+{% endblock %}

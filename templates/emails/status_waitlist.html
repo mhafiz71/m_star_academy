@@ -1,0 +1,114 @@
+{% extends 'emails/base.html' %}
+
+{% block title %}Application Waitlisted - Morning Star Academy{% endblock %}
+
+{% block content %}
+<h2 style="color: #7c3aed; margin-bottom: 20px;">Application Status: Waitlisted</h2>
+
+<p>Dear {{ application.guardian_full_name }},</p>
+
+<p>Thank you for submitting an application for <strong>{{ application.student_full_name }}</strong> to Morning Star
+    Academy. We have completed our initial review of applications and would like to update you on the status.</p>
+
+<div class="highlight-box" style="background-color: #f3e8ff; border-left-color: #7c3aed;">
+    <h3 style="margin-top: 0; color: #7c3aed;">Application Status: Waitlisted</h3>
+    <p><strong>Reference Number:</strong> <span class="reference-number">{{ application.reference_number }}</span></p>
+    <p><strong>Student:</strong> {{ application.student_full_name }}</p>
+    <p><strong>Grade Applied For:</strong> {{ application.get_grade_applying_for_display }}</p>
+    <p style="margin-bottom: 0;"><strong>Status:</strong> <span
+            style="color: #7c3aed; font-weight: bold;">Waitlisted</span></p>
+</div>
+
+<h3 style="color: #1e40af;">What Does "Waitlisted" Mean?</h3>
+<p>Being waitlisted means that {{ application.student_first_name }}'s application has been carefully reviewed and found
+    to meet our admission standards. However, due to limited space in the {{ application.get_grade_applying_for_display
+    }} class, we cannot offer immediate admission at this time.</p>
+
+<p>{{ application.student_first_name }} is now on our priority waiting list, and we will contact you immediately if a
+    space becomes available.</p>
+
+<h3 style="color: #1e40af;">Your Position and Timeline</h3>
+<div class="highlight-box">
+    <h4 style="margin-top: 0;">Important Information</h4>
+    <ul style="margin-bottom: 0; padding-left: 20px;">
+        <li><strong>Review Period:</strong> We will continue to review waitlisted applications through the end of the
+            enrollment period</li>
+        <li><strong>Notification:</strong> If a space becomes available, we will contact you within 24 hours</li>
+        <li><strong>Response Time:</strong> You will have 48 hours to confirm acceptance if offered a place</li>
+        <li><strong>Updates:</strong> We will send periodic updates on your waitlist status</li>
+    </ul>
+</div>
+
+<h3 style="color: #1e40af;">What This Means for You</h3>
+<p>While we cannot guarantee admission from the waitlist, we want you to know that:</p>
+
+<ul style="padding-left: 20px; line-height: 1.6;">
+    <li>{{ application.student_first_name }}'s application impressed our admissions committee</li>
+    <li>We believe {{ application.student_first_name }} would be a great fit for our school community</li>
+    <li>Historically, some students are admitted from our waitlist each year</li>
+    <li>Your application remains active and under consideration</li>
+</ul>
+
+<h3 style="color: #1e40af;">Next Steps</h3>
+<p>Here's what you can expect and what we recommend:</p>
+
+<ol style="padding-left: 20px; line-height: 1.8;">
+    <li><strong>Stay Informed:</strong> We will keep you updated on any changes to your waitlist status</li>
+    <li><strong>Maintain Interest:</strong> If you remain interested in Morning Star Academy, no action is required from
+        you</li>
+    <li><strong>Consider Alternatives:</strong> We recommend exploring other educational options while remaining on our
+        waitlist</li>
+    <li><strong>Contact Us:</strong> Feel free to reach out if you have questions or if your circumstances change</li>
+</ol>
+
+<div class="highlight-box" style="background-color: #fef3c7; border-left-color: #f59e0b;">
+    <h4 style="margin-top: 0; color: #92400e;">📞 Stay Reachable</h4>
+    <p style="margin-bottom: 0; color: #92400e;">
+        Please ensure your contact information is current. If we have a space available, we need to reach you quickly!
+    </p>
+</div>
+
+<h3 style="color: #1e40af;">Alternative Considerations</h3>
+<p>While you're on our waitlist, we encourage you to:</p>
+
+<ul style="padding-left: 20px; line-height: 1.6;">
+    <li>Continue {{ application.student_first_name }}'s current educational program</li>
+    <li>Explore other quality schools in the area</li>
+    <li>Consider applying for different grade levels if appropriate</li>
+    <li>Keep us informed of any significant changes in your situation</li>
+</ul>
+
+<div style="text-align: center; margin: 30px 0;">
+    <a href="mailto:{{ school_email }}" class="btn">Contact Admissions</a>
+    <a href="tel:{{ school_phone|default:'+233XXXXXXXXX' }}" class="btn btn-secondary">Call Us</a>
+</div>
+
+<h3 style="color: #1e40af;">We Appreciate Your Patience</h3>
+<p>We understand that being waitlisted can be disappointing and creates uncertainty. Please know that this decision
+    reflects the high quality of applications we received rather than any shortcoming in {{
+    application.student_first_name }}'s application.</p>
+
+<p>We will do our best to provide updates as soon as they become available. Thank you for your continued interest in
+    Morning Star Academy.</p>
+
+<div class="highlight-box" style="background-color: #ecfdf5; border-left-color: #10b981;">
+    <h4 style="margin-top: 0; color: #047857;">🌟 Remember</h4>
+    <p style="margin-bottom: 0; color: #047857;">
+        Being waitlisted means {{ application.student_first_name }} is qualified for admission. We hope to welcome them
+        to our school family soon!
+    </p>
+</div>
+
+<p style="margin-top: 30px;">
+    Thank you for your patience and continued interest in Morning Star Academy.<br><br>
+
+    Warm regards,<br>
+    <strong>The Admissions Team</strong><br>
+    Morning Star Academy<br>
+    <em>"Quality Education for a Brighter Future"</em>
+</p>
+
+<p style="font-size: 12px; color: #6b7280; margin-top: 20px;">
+    Questions? Contact us at {{ school_email }} or {{ school_phone|default:'+233 XX XXX XXXX' }}. We're here to help!
+</p>
+{% endblock %}
