@@ -1,6 +1,3 @@
-"""
-Management command to test email configuration
-"""
 from django.core.management.base import BaseCommand
 from django.core.mail import send_mail
 from django.conf import settings
@@ -32,8 +29,6 @@ class Command(BaseCommand):
         self.stdout.write(
             self.style.SUCCESS(f'Testing email configuration...')
         )
-
-        # Display current email settings
         self.stdout.write(f'Email Backend: {settings.EMAIL_BACKEND}')
         self.stdout.write(f'Email Host: {settings.EMAIL_HOST}')
         self.stdout.write(f'Email Port: {settings.EMAIL_PORT}')
@@ -42,7 +37,6 @@ class Command(BaseCommand):
 
         try:
             if email_type == 'simple':
-                # Send simple test email
                 send_mail(
                     subject='Morning Star Academy - Email Test',
                     message='This is a test email from Morning Star Academy platform.',
@@ -55,11 +49,8 @@ class Command(BaseCommand):
                 )
 
             elif email_type == 'template':
-                # Create a mock application for template testing
                 from applications.models import Application
                 from datetime import date
-
-                # Create a temporary application for testing
                 test_app = Application(
                     student_first_name='Test',
                     student_last_name='Student',
@@ -80,7 +71,6 @@ class Command(BaseCommand):
                 )
                 test_app.reference_number = 'TEST2025001'
 
-                # Send template-based test email
                 success = EmailService.send_application_confirmation(test_app)
                 
                 if success:

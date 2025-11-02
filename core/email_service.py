@@ -49,11 +49,7 @@ class EmailService:
     
     @staticmethod
     def send_status_update(application, old_status, new_status):
-        """
-        Send email notification when application status changes
-        """
         try:
-            # Determine email template and subject based on new status
             status_templates = {
                 'approved': {
                     'template': 'emails/status_approved.html',
@@ -75,21 +71,17 @@ class EmailService:
             
             template_info = status_templates[new_status]
             
-            # Prepare context
             context = {
                 'application': application,
                 'old_status': old_status,
                 'new_status': new_status,
                 'school_name': 'Morning Star Academy',
                 'school_email': settings.ADMIN_EMAIL,
-                'contact_phone': '+233 XX XXX XXXX',  # Replace with actual phone
+                'contact_phone': '+233 XX XXX XXXX',
             }
             
-            # Render email content
             html_content = render_to_string(template_info['template'], context)
             text_content = strip_tags(html_content)
-            
-            # Send email
             success = EmailService._send_email(
                 subject=template_info['subject'],
                 message=text_content,
@@ -110,9 +102,6 @@ class EmailService:
     
     @staticmethod
     def send_verification_email(application):
-        """
-        Send email verification email
-        """
         try:
             subject = "Please Verify Your Email - Morning Star Academy"
             
@@ -146,9 +135,6 @@ class EmailService:
     
     @staticmethod
     def send_reminder_email(application):
-        """
-        Send reminder email for unverified email addresses
-        """
         try:
             subject = "Reminder: Please Verify Your Email - Morning Star Academy"
             
@@ -182,12 +168,8 @@ class EmailService:
     
     @staticmethod
     def _send_email(subject, message, recipient_list, html_message=None, email_type=None, application=None):
-        """
-        Internal method to send emails with logging
-        """
         try:
             if html_message:
-                # Send HTML email
                 email = EmailMultiAlternatives(
                     subject=subject,
                     body=message,
@@ -197,7 +179,6 @@ class EmailService:
                 email.attach_alternative(html_message, "text/html")
                 email.send()
             else:
-                # Send plain text email
                 send_mail(
                     subject=subject,
                     message=message,
@@ -205,8 +186,6 @@ class EmailService:
                     recipient_list=recipient_list,
                     fail_silently=False
                 )
-            
-            # Log email sending (we'll implement EmailLog model later)
             EmailService._log_email(
                 application=application,
                 email_type=email_type,
@@ -219,8 +198,6 @@ class EmailService:
             
         except Exception as e:
             logger.error(f"Failed to send email: {e}")
-            
-            # Log failed email
             EmailService._log_email(
                 application=application,
                 email_type=email_type,
@@ -234,34 +211,20 @@ class EmailService:
     
     @staticmethod
     def _generate_verification_url(application):
-        """
-        Generate email verification URL (placeholder for now)
-        """
-        # We'll implement proper token generation later
         token = str(uuid.uuid4())
         return f"http://localhost:8000/verify-email/{token}/"
     
     @staticmethod
     def _log_email(application, email_type, recipient, subject, success, error_message=''):
-        """
-        Log email sending attempt (placeholder for now)
-        """
-        # We'll implement EmailLog model later
         logger.info(f"Email log: {email_type} to {recipient} - {'Success' if success else 'Failed'}")
         if error_message:
             logger.error(f"Email error: {error_message}")
 
 
 class EmailTemplateContext:
-    """
-    Helper class for generating consistent email template contexts
-    """
     
     @staticmethod
     def get_base_context():
-        """
-        Get base context used in all email templates
-        """
         return {
             'school_name': 'Morning Star Academy',
             'school_address': 'Tamale, Gbanyamli, Northern Region, Ghana',
@@ -273,9 +236,6 @@ class EmailTemplateContext:
     
     @staticmethod
     def get_application_context(application):
-        """
-        Get application-specific context
-        """
         base_context = EmailTemplateContext.get_base_context()
         base_context.update({
             'application': application,

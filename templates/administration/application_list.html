@@ -39,7 +39,7 @@
                     <select id="status" name="status" class="form-input w-full">
                         <option value="">All Statuses</option>
                         {% for value, label in status_choices %}
-                        <option value="{{ value }}" {% if current_status==value %}selected{% endif %}>
+                        <option value="{{ value }}" {% if current_status == value %}selected{% endif %}>
                             {{ label }}
                         </option>
                         {% endfor %}
@@ -52,7 +52,7 @@
                     <select id="grade" name="grade" class="form-input w-full">
                         <option value="">All Grades</option>
                         {% for value, label in grade_choices %}
-                        <option value="{{ value }}" {% if current_grade==value %}selected{% endif %}>
+                        <option value="{{ value }}" {% if current_grade == value %}selected{% endif %}>
                             {{ label }}
                         </option>
                         {% endfor %}

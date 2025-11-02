@@ -7,12 +7,7 @@ from datetime import date
 
 
 class EmailServiceTest(TestCase):
-    """
-    Test cases for email service functionality
-    """
-    
     def setUp(self):
-        """Set up test data"""
         self.application = Application.objects.create(
             student_first_name='John',
             student_last_name='Doe',

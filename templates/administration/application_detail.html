@@ -145,8 +145,7 @@
                 </div>
 
                 <!-- Additional Information -->
-                {% if application.medical_conditions or application.special_requirements or application.additional_notes
-                %}
+                {% if application.medical_conditions or application.special_requirements or application.additional_notes %}
                 <div class="bg-white rounded-lg shadow p-6">
                     <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
                         Additional Information
@@ -206,7 +205,7 @@
                             </label>
                             <select id="status" name="status" class="form-input w-full">
                                 {% for value, label in application.STATUS_CHOICES %}
-                                <option value="{{ value }}" {% if application.status==value %}selected{% endif %}>
+                                <option value="{{ value }}" {% if application.status == value %} selected{% endif %}>
                                     {{ label }}
                                 </option>
                                 {% endfor %}

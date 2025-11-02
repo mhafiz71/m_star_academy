@@ -49,99 +49,125 @@ class ApplicationForm(forms.ModelForm):
         widgets = {
             # Student Information
             'student_first_name': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter student\'s first name'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'Enter student\'s first name',
+                'autocomplete': 'given-name',
+                'maxlength': '100'
             }),
             'student_last_name': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter student\'s last name'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'Enter student\'s last name',
+                'autocomplete': 'family-name',
+                'maxlength': '100'
             }),
             'student_date_of_birth': forms.DateInput(attrs={
-                'class': 'form-input',
-                'type': 'date'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'type': 'date',
+                'autocomplete': 'bday'
             }),
             'student_gender': forms.Select(attrs={
-                'class': 'form-input'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 cursor-pointer'
             }),
             'student_place_of_birth': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter place of birth'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'e.g., Tamale, Northern Region',
+                'maxlength': '200'
             }),
             
             # Academic Information
             'previous_school': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter previous school (if any)'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'Enter previous school name (if applicable)',
+                'maxlength': '200'
             }),
             'grade_applying_for': forms.Select(attrs={
-                'class': 'form-input'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 cursor-pointer'
             }),
             
             # Guardian Information
             'guardian_first_name': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter guardian\'s first name'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'Enter guardian\'s first name',
+                'autocomplete': 'given-name',
+                'maxlength': '100'
             }),
             'guardian_last_name': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter guardian\'s last name'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'Enter guardian\'s last name',
+                'autocomplete': 'family-name',
+                'maxlength': '100'
             }),
             'guardian_relationship': forms.Select(attrs={
-                'class': 'form-input'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 cursor-pointer'
             }),
             'guardian_phone': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': '+233 XX XXX XXXX',
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': '+233 24 123 4567',
                 'type': 'tel',
-                'inputmode': 'tel'
+                'inputmode': 'tel',
+                'autocomplete': 'tel',
+                'pattern': r'[\+]?[0-9\s\-\(\)]+',
+                'maxlength': '20'
             }),
             'guardian_email': forms.EmailInput(attrs={
-                'class': 'form-input',
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
                 'placeholder': 'guardian@example.com',
                 'inputmode': 'email',
-                'autocomplete': 'email'
+                'autocomplete': 'email',
+                'maxlength': '254'
             }),
             'guardian_address': forms.Textarea(attrs={
-                'class': 'form-input',
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 resize-y min-h-[80px]',
                 'rows': 3,
-                'placeholder': 'Enter complete address'
+                'placeholder': 'Enter complete residential address',
+                'autocomplete': 'street-address',
+                'maxlength': '500'
             }),
             'guardian_occupation': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter occupation'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'e.g., Teacher, Farmer, Business Owner',
+                'autocomplete': 'organization-title',
+                'maxlength': '100'
             }),
             
             # Emergency Contact
             'emergency_contact_name': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Enter emergency contact name'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'Full name of emergency contact',
+                'maxlength': '100'
             }),
             'emergency_contact_phone': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': '+233 XX XXX XXXX',
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': '+233 24 123 4567',
                 'type': 'tel',
-                'inputmode': 'tel'
+                'inputmode': 'tel',
+                'pattern': r'[\+]?[0-9\s\-\(\)]+',
+                'maxlength': '20'
             }),
             'emergency_contact_relationship': forms.TextInput(attrs={
-                'class': 'form-input',
-                'placeholder': 'Relationship to student'
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900',
+                'placeholder': 'e.g., Uncle, Aunt, Family Friend',
+                'maxlength': '50'
             }),
             
             # Additional Information
             'medical_conditions': forms.Textarea(attrs={
-                'class': 'form-input',
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 resize-y min-h-[80px]',
                 'rows': 3,
-                'placeholder': 'List any medical conditions or allergies (optional)'
+                'placeholder': 'List any medical conditions, allergies, or medications (leave blank if none)',
+                'maxlength': '1000'
             }),
             'special_requirements': forms.Textarea(attrs={
-                'class': 'form-input',
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 resize-y min-h-[80px]',
                 'rows': 3,
-                'placeholder': 'Any special educational requirements (optional)'
+                'placeholder': 'Any special educational needs or accommodations required (leave blank if none)',
+                'maxlength': '1000'
             }),
             'additional_notes': forms.Textarea(attrs={
-                'class': 'form-input',
+                'class': 'mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 resize-y min-h-[80px]',
                 'rows': 3,
-                'placeholder': 'Any additional information (optional)'
+                'placeholder': 'Any other information you would like us to know (optional)',
+                'maxlength': '1000'
             }),
         }
     

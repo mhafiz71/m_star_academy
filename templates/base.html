@@ -187,6 +187,75 @@
                     }
                 });
             });
+
+            // Form enhancements
+            const formInputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
+
+            // Add focus/blur animations
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function () {
+                    this.parentElement.classList.add('focused');
+                });
+
+                input.addEventListener('blur', function () {
+                    this.parentElement.classList.remove('focused');
+
+                    // Add validation styling
+                    if (this.checkValidity()) {
+                        this.classList.remove('error');
+                        this.classList.add('valid');
+                    } else if (this.value) {
+                        this.classList.add('error');
+                        this.classList.remove('valid');
+                    }
+                });
+            });
+
+            // Phone number formatting
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', function (e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.startsWith('233')) {
+                        value = '+' + value;
+                    } else if (value.startsWith('0')) {
+                        value = '+233' + value.substring(1);
+                    }
+                    e.target.value = value;
+                });
+            });
+
+            // Auto-resize textareas
+            const textareas = document.querySelectorAll('.form-textarea');
+            textareas.forEach(textarea => {
+                textarea.addEventListener('input', function () {
+                    this.style.height = 'auto';
+                    this.style.height = this.scrollHeight + 'px';
+                });
+            });
+
+            // Form section animations on scroll
+            const formSections = document.querySelectorAll('.form-section');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            formSections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
         });
     </script>
     {% block extra_js %}

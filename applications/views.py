@@ -8,41 +8,46 @@ from django.http import Http404
 import logging
 from .models import Application
 from .forms import ApplicationForm
+from core.email_service import EmailService
 
 logger = logging.getLogger(__name__)
 
 
 class ApplicationCreateView(CreateView):
-    """
-    View for handling application form submission
-    """
     model = Application
     form_class = ApplicationForm
     template_name = 'applications/apply.html'
     
     def form_valid(self, form):
-        """Handle successful form submission"""
         try:
-            # Save the application
             application = form.save()
             
-            # Log successful submission
             logger.info(
                 f'Application submitted successfully: {application.reference_number} '
                 f'for {application.student_full_name}'
             )
             
-            # Add success message
+            # Send confirmation email
+            try:
+                email_sent = EmailService.send_application_confirmation(application)
+                if email_sent:
+                    logger.info(f'Confirmation email sent for application {application.reference_number}')
+                    email_message = f' A confirmation email has been sent to {application.guardian_email}.'
+                else:
+                    logger.warning(f'Failed to send confirmation email for application {application.reference_number}')
+                    email_message = ' However, the confirmation email could not be sent.'
+            except Exception as e:
+                logger.error(f'Error sending confirmation email for {application.reference_number}: {e}')
+                email_message = ' However, there was an error sending the confirmation email.'
+            
             messages.success(
                 self.request, 
-                f'Application submitted successfully! Your reference number is {application.reference_number}'
+                f'Application submitted successfully! Your reference number is {application.reference_number}.{email_message}'
             )
             
-            # Redirect to success page with reference number
             return redirect('applications:success', ref_number=application.reference_number)
             
         except ValidationError as e:
-            # Handle validation errors
             logger.warning(f'Application validation error: {e}')
             messages.error(
                 self.request, 
@@ -51,7 +56,6 @@ class ApplicationCreateView(CreateView):
             return self.form_invalid(form)
             
         except IntegrityError as e:
-            # Handle database integrity errors (e.g., duplicate reference numbers)
             logger.error(f'Database integrity error during application submission: {e}')
             messages.error(
                 self.request, 
@@ -60,7 +64,6 @@ class ApplicationCreateView(CreateView):
             return self.form_invalid(form)
             
         except DatabaseError as e:
-            # Handle general database errors
             logger.error(f'Database error during application submission: {e}')
             messages.error(
                 self.request, 
@@ -69,7 +72,6 @@ class ApplicationCreateView(CreateView):
             return self.form_invalid(form)
             
         except Exception as e:
-            # Handle any other unexpected errors
             logger.error(f'Unexpected error during application submission: {e}', exc_info=True)
             messages.error(
                 self.request, 
@@ -78,7 +80,6 @@ class ApplicationCreateView(CreateView):
             return self.form_invalid(form)
     
     def form_invalid(self, form):
-        """Handle form validation errors"""
         messages.error(
             self.request,
             'Please correct the errors below and try again.'
@@ -87,25 +88,19 @@ class ApplicationCreateView(CreateView):
 
 
 class ApplicationSuccessView(TemplateView):
-    """
-    View for displaying application success page
-    """
     template_name = 'applications/success.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         
-        # Get the reference number from URL
         ref_number = kwargs.get('ref_number')
         
         if ref_number:
             try:
-                # Get the application to verify it exists
                 application = get_object_or_404(Application, reference_number=ref_number)
                 context['application'] = application
                 context['reference_number'] = ref_number
                 
-                # Log successful access to success page
                 logger.info(f'Success page accessed for application: {ref_number}')
                 
             except Http404:
