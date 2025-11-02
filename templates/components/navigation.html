@@ -20,6 +20,10 @@
                     class="nav-link {% if request.resolver_match.url_name == 'apply' %}active{% endif %}">
                     Apply
                 </a>
+                <a href="{% url 'applications:download' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}">
+                    Download Form
+                </a>
                 <a href="{% url 'core:about' %}"
                     class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
                     About
@@ -64,21 +68,25 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div class="mobile-menu hidden md:hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 border-t">
-                <a href="{% url 'core:home' %}"
-                    class="mobile-nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-                    Home
-                </a>
-                <a href="{% url 'applications:apply' %}"
-                    class="mobile-nav-link {% if request.resolver_match.url_name == 'apply' %}active{% endif %}">
-                    Apply
-                </a>
-                <a href="{% url 'core:about' %}"
-                    class="mobile-nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
-                    About
-                </a>
+        <!-- Mobile Navigation -->
+            <div class="hidden md:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="{% url 'core:home' %}"
+                        class="mobile-nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                        Home
+                    </a>
+                    <a href="{% url 'applications:apply' %}"
+                        class="mobile-nav-link {% if request.resolver_match.url_name == 'apply' %}active{% endif %}">
+                        Apply
+                    </a>
+                    <a href="{% url 'applications:download' %}"
+                        class="mobile-nav-link {% if request.resolver_match.url_name == 'download' %}active{% endif %}">
+                        Download Form
+                    </a>
+                    <a href="{% url 'core:about' %}"
+                        class="mobile-nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                        About
+                    </a>
                 {% if user.is_staff %}
                 <a href="{% url 'administration:dashboard' %}"
                     class="mobile-nav-link admin-link {% if 'administration' in request.resolver_match.namespace %}active{% endif %}">

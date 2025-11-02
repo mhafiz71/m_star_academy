@@ -46,10 +46,15 @@
             <!-- Reference Number Display -->
             <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
                 <h2 class="text-xl font-semibold text-blue-900 mb-2">Your Reference Number</h2>
-                <div class="text-2xl font-bold text-blue-600 font-mono">{{ reference_number }}</div>
+       <div class="text-2xl font-bold text-blue-600 font-mono">{{ reference_number }}</div>
                 <p class="text-sm text-blue-700 mt-2">
                     Please save this reference number for your records. You will need it for any future correspondence.
                 </p>
+                <div class="mt-4 space-y-2">
+                    <a href="{% url 'applications:view_application' ref_number=reference_number %}" class="btn-primary block">
+                        View Application Form
+                    </a>
+                </div>
             </div>
             {% endif %}
 
@@ -120,8 +125,8 @@
             <div class="mt-8 pt-6 border-t border-gray-200">
                 <p class="text-sm text-gray-600">
                     Questions about your application? Contact us at
-                    <a href="mailto:info@morningstaracademy.edu.gh" class="text-blue-600 hover:text-blue-800">
-                        info@morningstaracademy.edu.gh
+                    <a href="mailto:abdulnasirmhafiz567@gmail.com" class="text-blue-600 hover:text-blue-800">
+                abdulnasirmhafiz567@gmail.com
                     </a>
                 </p>
             </div>

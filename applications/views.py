@@ -1,13 +1,15 @@
+import logging
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib import messages
 from django.urls import reverse
 from django.core.exceptions import ValidationError
 from django.db import IntegrityError, DatabaseError
-from django.http import Http404
-import logging
+from django.http import Http404, HttpResponse
+from django.views.decorators.http import require_POST
+from django import forms
 from .models import Application
-from .forms import ApplicationForm
+from .forms import ApplicationForm, ApplicationDownloadForm
 from core.email_service import EmailService
 
 logger = logging.getLogger(__name__)
@@ -114,3 +116,25 @@ class ApplicationSuccessView(TemplateView):
             context['error'] = 'No reference number provided.'
         
         return context
+
+
+class DownloadApplicationView(FormView):
+    """View for downloading application forms by reference number."""
+    template_name = 'applications/download.html'
+    form_class = ApplicationDownloadForm
+    
+    def form_valid(self, form):
+        reference_number = form.cleaned_data['reference_number']
+        return redirect('applications:view_application', ref_number=reference_number)
+
+
+def view_application(request, ref_number):
+    """View application details by reference number."""
+    try:
+        application = get_object_or_404(Application, reference_number=ref_number)
+        return render(request, 'applications/view_application.html', {'application': application})
+        
+    except Exception as e:
+        logger.error(f"Error viewing application {ref_number}: {str(e)}")
+        messages.error(request, "An error occurred while retrieving the application. Please try again later.")
+        return redirect('applications:download')

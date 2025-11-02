@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Application Form - {{ application.reference_number }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .header h1 {
+            color: #1a56db;
+            margin-bottom: 5px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #1a56db;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .field {
+            margin-bottom: 10px;
+        }
+        .label {
+            font-weight: bold;
+            display: inline-block;
+            width: 200px;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+        .reference {
+            text-align: right;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Morning Star Academy</h1>
+        <p>Student Application Form</p>
+    </div>
+    
+    <div class="reference">
+        <strong>Reference Number:</strong> {{ application.reference_number }}<br>
+        <strong>Submission Date:</strong> {{ application.created_at|date:"F d, Y" }}
+    </div>
+    
+    <div class="section">
+        <h2>Student Information</h2>
+        <div class="field">
+            <span class="label">Full Name:</span> {{ application.student_full_name }}
+        </div>
+        <div class="field">
+            <span class="label">Date of Birth:</span> {{ application.student_date_of_birth|date:"F d, Y" }}
+        </div>
+        <div class="field">
+            <span class="label">Gender:</span> {{ application.get_student_gender_display }}
+        </div>
+        <div class="field">
+            <span class="label">Place of Birth:</span> {{ application.student_place_of_birth }}
+        </div>
+        <div class="field">
+            <span class="label">Grade Applying For:</span> {{ application.get_grade_applying_for_display }}
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Guardian Information</h2>
+        <div class="field">
+            <span class="label">Full Name:</span> {{ application.guardian_full_name }}
+        </div>
+        <div class="field">
+            <span class="label">Relationship:</span> {{ application.get_guardian_relationship_display }}
+        </div>
+        <div class="field">
+            <span class="label">Phone:</span> {{ application.guardian_phone }}
+        </div>
+        <div class="field">
+            <span class="label">Email:</span> {{ application.guardian_email }}
+        </div>
+        <div class="field">
+            <span class="label">Address:</span> {{ application.guardian_address }}
+        </div>
+        <div class="field">
+            <span class="label">Occupation:</span> {{ application.guardian_occupation }}
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Emergency Contact</h2>
+        <div class="field">
+            <span class="label">Name:</span> {{ application.emergency_contact_name }}
+        </div>
+        <div class="field">
+            <span class="label">Phone:</span> {{ application.emergency_contact_phone }}
+        </div>
+        <div class="field">
+            <span class="label">Relationship:</span> {{ application.get_emergency_contact_relationship_display }}
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Application Status</h2>
+        <div class="field">
+            <span class="label">Current Status:</span> {{ application.get_status_display }}
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>This document is an official record of your application to Morning Star Academy.</p>
+        <p>For any inquiries, please contact the admissions office.</p>
+    </div>
+</body>
+</html>
