@@ -52,7 +52,7 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'django.log',
             'formatter': 'verbose',
-            'maxBytes': 1024*1024*10,  # 10MB
+            'maxBytes': 1024*1024*10,
             'backupCount': 5,
         },
         'error_file': {
@@ -60,7 +60,7 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'errors.log',
             'formatter': 'error_format',
-            'maxBytes': 1024*1024*10,  # 10MB
+            'maxBytes': 1024*1024*10,
             'backupCount': 5,
         },
         'security_file': {
@@ -68,7 +68,7 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'security.log',
             'formatter': 'verbose',
-            'maxBytes': 1024*1024*5,  # 5MB
+            'maxBytes': 1024*1024*5,
             'backupCount': 3,
         },
         'application_file': {
@@ -76,7 +76,7 @@ LOGGING = {
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'applications.log',
             'formatter': 'verbose',
-            'maxBytes': 1024*1024*5,  # 5MB
+            'maxBytes': 1024*1024*5
             'backupCount': 3,
         },
         'console': {
@@ -119,16 +119,9 @@ LOGGING = {
     },
 }
 
-# Static files for production - override base settings
 STATIC_ROOT = config('STATIC_ROOT', default=BASE_DIR / 'staticfiles')
-
-# Email settings for production - override base settings
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
-
-# Email timeout settings
 EMAIL_TIMEOUT = 30
-
-# Cache for production - Redis recommended
 CACHE_LOCATION = config('CACHE_LOCATION', default='redis://127.0.0.1:6379/1')
 if 'redis' in CACHE_LOCATION:
     CACHES = {
@@ -142,6 +135,4 @@ if 'redis' in CACHE_LOCATION:
         }
     }
 
-# Create logs directory
-import os
 os.makedirs(BASE_DIR / 'logs', exist_ok=True)

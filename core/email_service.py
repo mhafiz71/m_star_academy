@@ -1,7 +1,3 @@
-"""
-Email service for Morning Star Academy
-Handles all email communications including notifications, verification, and status updates
-"""
 import logging
 import uuid
 from datetime import datetime, timedelta
@@ -17,19 +13,12 @@ logger = logging.getLogger(__name__)
 
 
 class EmailService:
-    """
-    Centralized email service for handling all application-related communications
-    """
     
     @staticmethod
     def send_application_confirmation(application):
-        """
-        Send confirmation email when application is submitted
-        """
         try:
             subject = f"Application Received - Morning Star Academy (Ref: {application.reference_number})"
             
-            # Prepare context for email template
             context = {
                 'application': application,
                 'school_name': 'Morning Star Academy',
@@ -37,11 +26,8 @@ class EmailService:
                 'verification_url': EmailService._generate_verification_url(application),
             }
             
-            # Render HTML and text versions
             html_content = render_to_string('emails/application_confirmation.html', context)
             text_content = strip_tags(html_content)
-            
-            # Send email
             success = EmailService._send_email(
                 subject=subject,
                 message=text_content,
