@@ -122,21 +122,43 @@ class ApplicationDetailView(StaffRequiredMixin, DetailView):
     
     def post(self, request, *args, **kwargs):
         """Handle status updates"""
-        application = self.get_object()
-        new_status = request.POST.get('status')
-        
-        if new_status in ['pending', 'approved', 'rejected', 'waitlist']:
-            old_status = application.status
-            application.status = new_status
-            application.save()
+        try:
+            application = self.get_object()
+            new_status = request.POST.get('status')
             
-            messages.success(
-                request, 
-                f'Application {application.reference_number} status updated from '
-                f'{old_status} to {new_status}.'
-            )
-        else:
-            messages.error(request, 'Invalid status selected.')
+            if new_status in ['pending', 'approved', 'rejected', 'waitlist']:
+                old_status = application.status
+                application.status = new_status
+                application.save()
+                
+                # Log status change
+                logger.info(
+                    f'Application {application.reference_number} status changed from '
+                    f'{old_status} to {new_status} by {request.user.username}'
+                )
+                
+                messages.success(
+                    request, 
+                    f'Application {application.reference_number} status updated from '
+                    f'{old_status} to {new_status}.'
+                )
+            else:
+                logger.warning(
+                    f'Invalid status update attempt: {new_status} by {request.user.username}'
+                )
+                messages.error(request, 'Invalid status selected.')
+                
+        except ValidationError as e:
+            logger.error(f'Validation error during status update: {e}')
+            messages.error(request, 'Invalid data provided. Please try again.')
+            
+        except DatabaseError as e:
+            logger.error(f'Database error during status update: {e}')
+            messages.error(request, 'Technical error occurred. Please try again.')
+            
+        except Exception as e:
+            logger.error(f'Unexpected error during status update: {e}', exc_info=True)
+            messages.error(request, 'An unexpected error occurred. Please try again.')
         
         return redirect('administration:application_detail', pk=application.pk)
 

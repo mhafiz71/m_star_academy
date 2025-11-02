@@ -127,3 +127,42 @@ class SecurityLoggingMiddleware(MiddlewareMixin):
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+
+
+class ErrorHandlingMiddleware(MiddlewareMixin):
+    """
+    Enhanced error handling and logging middleware
+    """
+    
+    def process_exception(self, request, exception):
+        """Handle exceptions and log them appropriately"""
+        
+        # Get client IP for logging
+        ip = self.get_client_ip(request)
+        user = getattr(request, 'user', 'Anonymous')
+        
+        # Log the exception with context
+        logger.error(
+            f'Exception occurred for user {user} from IP {ip} '
+            f'on path {request.path}: {str(exception)}',
+            exc_info=True,
+            extra={
+                'request_path': request.path,
+                'request_method': request.method,
+                'user': str(user),
+                'ip_address': ip,
+                'user_agent': request.META.get('HTTP_USER_AGENT', ''),
+            }
+        )
+        
+        # Don't handle the exception, let Django's default handler take over
+        return None
+    
+    def get_client_ip(self, request):
+        """Get the client's IP address"""
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip

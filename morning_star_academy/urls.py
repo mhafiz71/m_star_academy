@@ -14,6 +14,12 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
+# Custom error handlers
+handler404 = 'core.error_handlers.custom_404_handler'
+handler500 = 'core.error_handlers.custom_500_handler'
+handler403 = 'core.error_handlers.custom_403_handler'
+handler400 = 'core.error_handlers.custom_400_handler'
+
 # Add browser reload for development
 if settings.DEBUG:
     urlpatterns += [

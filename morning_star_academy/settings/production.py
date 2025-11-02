@@ -65,19 +65,43 @@ LOGGING = {
             'format': '{levelname} {message}',
             'style': '{',
         },
+        'error_format': {
+            'format': '{levelname} {asctime} {module} {funcName} {lineno:d} {message}',
+            'style': '{',
+        },
     },
     'handlers': {
         'file': {
             'level': 'INFO',
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'django.log',
             'formatter': 'verbose',
+            'maxBytes': 1024*1024*10,  # 10MB
+            'backupCount': 5,
+        },
+        'error_file': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs' / 'errors.log',
+            'formatter': 'error_format',
+            'maxBytes': 1024*1024*10,  # 10MB
+            'backupCount': 5,
         },
         'security_file': {
             'level': 'WARNING',
-            'class': 'logging.FileHandler',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs' / 'security.log',
             'formatter': 'verbose',
+            'maxBytes': 1024*1024*5,  # 5MB
+            'backupCount': 3,
+        },
+        'application_file': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': BASE_DIR / 'logs' / 'applications.log',
+            'formatter': 'verbose',
+            'maxBytes': 1024*1024*5,  # 5MB
+            'backupCount': 3,
         },
         'console': {
             'level': 'INFO',
@@ -91,12 +115,27 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
+        'django.request': {
+            'handlers': ['error_file'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
         'django.security': {
             'handlers': ['security_file'],
             'level': 'WARNING',
             'propagate': False,
         },
         'applications': {
+            'handlers': ['application_file', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'administration': {
+            'handlers': ['application_file', 'file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'core': {
             'handlers': ['file'],
             'level': 'INFO',
             'propagate': True,
