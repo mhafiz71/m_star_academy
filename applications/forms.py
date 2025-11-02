@@ -1,7 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+from django.utils.html import strip_tags
 from datetime import date, timedelta
+import re
 from .models import Application
 
 
@@ -89,11 +91,15 @@ class ApplicationForm(forms.ModelForm):
             }),
             'guardian_phone': forms.TextInput(attrs={
                 'class': 'form-input',
-                'placeholder': '+233 XX XXX XXXX'
+                'placeholder': '+233 XX XXX XXXX',
+                'type': 'tel',
+                'inputmode': 'tel'
             }),
             'guardian_email': forms.EmailInput(attrs={
                 'class': 'form-input',
-                'placeholder': 'guardian@example.com'
+                'placeholder': 'guardian@example.com',
+                'inputmode': 'email',
+                'autocomplete': 'email'
             }),
             'guardian_address': forms.Textarea(attrs={
                 'class': 'form-input',
@@ -112,7 +118,9 @@ class ApplicationForm(forms.ModelForm):
             }),
             'emergency_contact_phone': forms.TextInput(attrs={
                 'class': 'form-input',
-                'placeholder': '+233 XX XXX XXXX'
+                'placeholder': '+233 XX XXX XXXX',
+                'type': 'tel',
+                'inputmode': 'tel'
             }),
             'emergency_contact_relationship': forms.TextInput(attrs={
                 'class': 'form-input',
@@ -191,8 +199,30 @@ class ApplicationForm(forms.ModelForm):
         return phone
     
     def clean(self):
-        """Cross-field validation"""
+        """Cross-field validation and input sanitization"""
         cleaned_data = super().clean()
+        
+        # Sanitize text fields to prevent XSS
+        text_fields = [
+            'student_first_name', 'student_last_name', 'student_place_of_birth',
+            'previous_school', 'guardian_first_name', 'guardian_last_name',
+            'guardian_occupation', 'emergency_contact_name', 'emergency_contact_relationship',
+            'medical_conditions', 'special_requirements', 'additional_notes'
+        ]
+        
+        for field_name in text_fields:
+            if field_name in cleaned_data and cleaned_data[field_name]:
+                # Strip HTML tags and limit length
+                cleaned_value = strip_tags(cleaned_data[field_name])
+                # Remove potentially dangerous characters
+                cleaned_value = re.sub(r'[<>"\']', '', cleaned_value)
+                cleaned_data[field_name] = cleaned_value
+        
+        # Validate guardian address separately (allow more characters but sanitize)
+        if 'guardian_address' in cleaned_data and cleaned_data['guardian_address']:
+            address = strip_tags(cleaned_data['guardian_address'])
+            address = re.sub(r'[<>"\']', '', address)
+            cleaned_data['guardian_address'] = address
         
         guardian_phone = cleaned_data.get('guardian_phone')
         emergency_phone = cleaned_data.get('emergency_contact_phone')

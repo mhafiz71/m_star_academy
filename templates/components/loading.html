@@ -1,0 +1,30 @@
+<!-- Loading Spinner Component -->
+<div id="loading-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg p-6 flex items-center space-x-4">
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <span class="text-gray-700 font-medium">Loading...</span>
+    </div>
+</div>
+
+<script>
+// Show loading overlay for form submissions
+document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('form');
+    const loadingOverlay = document.getElementById('loading-overlay');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', function() {
+            if (loadingOverlay) {
+                loadingOverlay.classList.remove('hidden');
+            }
+        });
+    });
+    
+    // Hide loading on page load
+    window.addEventListener('load', function() {
+        if (loadingOverlay) {
+            loadingOverlay.classList.add('hidden');
+        }
+    });
+});
+</script>

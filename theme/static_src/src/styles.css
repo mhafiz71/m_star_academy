@@ -52,4 +52,58 @@
   .form-input {
     @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500;
   }
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+
+  .btn-primary,
+  .btn-secondary {
+    @apply min-h-[44px] text-base;
+  }
+
+  .form-input {
+    @apply min-h-[44px] text-base;
+  }
+
+  .mobile-nav-link {
+    @apply min-h-[44px] flex items-center;
+  }
+
+  /* Improve table responsiveness */
+  .table-responsive {
+    @apply overflow-x-auto;
+  }
+
+  .table-responsive table {
+    @apply min-w-full;
+  }
+
+  /* Card spacing for mobile */
+  .card-mobile {
+    @apply mx-2 my-4;
+  }
+
+  /* Text sizing for mobile */
+  .text-responsive {
+    @apply text-sm;
+  }
+
+  .heading-responsive {
+    @apply text-xl;
+  }
+}
+
+/* Loading states */
+.loading {
+  @apply opacity-60 pointer-events-none;
+}
+
+/* Touch improvements */
+.touch-target {
+  @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+}
+
+/* Smooth animations */
+.smooth-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
 }
