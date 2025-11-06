@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home - Morning Star Academy{% endblock %}
 
@@ -33,26 +34,43 @@
                 </div>
             </div>
             <div class="relative">
-                <div class="bg-blue-100 rounded-2xl p-8 shadow-lg">
-                    <div class="bg-white rounded-xl p-6 shadow-md">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Quick Facts</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                                <span class="text-gray-700">Founded in 2016</span>
+                <!-- School Image -->
+                <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                    <img src="{% static 'images/school-exterior.jpg' %}" 
+                         alt="Morning Star Academy School Building" 
+                         class="w-full h-80 object-cover"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    
+                    <!-- Fallback content when image is not available -->
+                    <div class="bg-blue-100 rounded-2xl p-8 shadow-lg h-80 flex items-center justify-center" style="display: none;">
+                        <div class="bg-white rounded-xl p-6 shadow-md w-full">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Quick Facts</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Founded in 2016</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">NASIA Approved</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Ghana Education Service Licensed</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                                    <span class="text-gray-700">Preschool to Basic Education</span>
+                                </div>
                             </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                                <span class="text-gray-700">NASIA Approved</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                                <span class="text-gray-700">Ghana Education Service Licensed</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                                <span class="text-gray-700">Preschool to Basic Education</span>
-                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Image overlay with school info -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
+                        <div class="p-6 text-white">
+                            <h3 class="text-xl font-bold mb-2">Morning Star International School</h3>
+                            <p class="text-sm opacity-90">Tamale, Northern Region, Ghana</p>
                         </div>
                     </div>
                 </div>
@@ -197,8 +215,62 @@
     </div>
 </section>
 
+<!-- School Gallery Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Our School Environment</h2>
+            <p class="text-lg text-gray-600">Take a look at our facilities and vibrant school community</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- School Building -->
+            <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                <img src="{% static 'images/school-exterior.jpg' %}" 
+                     alt="School Building Exterior" 
+                     class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTI4TDE2MCA5Nkg2NFYxNjBIMzM2VjE2MEwyNDAgOTZMMjAwIDEyOFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxODAiIHk9IjEwOCI+CjxwYXRoIGQ9Ik0xMiAyTDIgN0wyIDEySDVWMjJIMTlWMTJIMjJMMTIgMloiIGZpbGw9IiM2Mzc0OEYiLz4KPC9zdmc+Cg==';">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="font-semibold">School Building</h3>
+                        <p class="text-sm opacity-90">Modern classrooms and facilities</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Students in Uniforms -->
+            <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                <img src="{% static 'images/students-uniforms.jpg' %}" 
+                     alt="Students in School Uniforms" 
+                     class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRUZGNkZGIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMzQjgyRjYiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMTAwIiByPSIyMCIgZmlsbD0iIzNCODJGNiIvPgo8cmVjdCB4PSIxMzAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMzM3NEU5Ii8+CjxyZWN0IHg9IjIzMCIgeT0iMTIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNjAiIGZpbGw9IiMzMzc0RTkiLz4KPC9zdmc+Cg==';">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="font-semibold">Our Students</h3>
+                        <p class="text-sm opacity-90">Proud in their blue uniforms</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- School Playground -->
+            <div class="relative group overflow-hidden rounded-xl shadow-lg">
+                <img src="{% static 'images/school-courtyard.jpg' %}" 
+                     alt="School Playground and Courtyard" 
+                     class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjBGREY0Ii8+CjxyZWN0IHg9IjUwIiB5PSIxODAiIHdpZHRoPSIzMDAiIGhlaWdodD0iNDAiIGZpbGw9IiM2NkJCNkEiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iIzIyQzU1RSIvPgo8cmVjdCB4PSIxMDAiIHk9IjgwIiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIGZpbGw9IiMzQjgyRjYiLz4KPC9zdmc+Cg==';">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-4 left-4 text-white">
+                        <h3 class="font-semibold">Playground</h3>
+                        <p class="text-sm opacity-90">Safe play area for students</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Call to Action Section -->
-<section class="py-16 bg-gray-50">
+<section class="py-16 bg-gray-50"></section>
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Join Our Community?</h2>
         <p class="text-lg text-gray-600 mb-8">

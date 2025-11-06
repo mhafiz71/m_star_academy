@@ -1,15 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}About - Morning Star Academy{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-700 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<section class="relative bg-gradient-to-r from-blue-600 to-blue-700 py-20 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 opacity-30">
+        <img src="{% static 'images/school-exterior.jpg' %}" 
+             alt="Morning Star Academy Building" 
+             class="w-full h-full object-cover"
+             onerror="this.style.display='none';">
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">About Morning Star Academy</h1>
-        <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
             Providing quality, affordable, and inclusive education in Northern Ghana since 2016
         </p>
+        
+        <!-- School Logo/Badge -->
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full">
+            <img src="{% static 'images/logo-white.png' %}" 
+                 alt="Morning Star Academy Logo" 
+                 class="w-12 h-12"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <svg class="w-12 h-12 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.832 18.477 19.246 18 17.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+        </div>
     </div>
 </section>
 
@@ -39,8 +59,27 @@
                     </p>
                 </div>
             </div>
-            <div class="bg-gray-50 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Quick Facts</h3>
+            <div class="relative">
+                <!-- School Image -->
+                <div class="mb-8">
+                    <img src="{% static 'images/school-signage.jpg' %}" 
+                         alt="Morning Star International School Sign" 
+                         class="w-full h-64 object-cover rounded-2xl shadow-lg"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    
+                    <!-- Fallback content -->
+                    <div class="bg-gray-50 rounded-2xl p-8 h-64 flex items-center justify-center" style="display: none;">
+                        <div class="text-center">
+                            <svg class="w-16 h-16 mx-auto mb-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                            <h3 class="text-lg font-semibold text-gray-900">Morning Star Academy</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Quick Facts</h3>
                 <div class="space-y-4">
                     <div class="flex items-start">
                         <div class="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
@@ -194,6 +233,60 @@
                     future where every child has access to quality education that prepares them for
                     success in higher education and life.
                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- School Facilities Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Facilities</h2>
+            <p class="text-lg text-gray-600">Modern facilities designed for effective learning</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Classrooms -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="relative h-48">
+                    <img src="{% static 'images/classroom-interior.jpg' %}" 
+                         alt="Modern Classroom" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDQwMCAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTkyIiBmaWxsPSIjRjNGNEY2Ii8+CjxyZWN0IHg9IjUwIiB5PSI0MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzM3NEU5OSIvPgo8cmVjdCB4PSI1MCIgeT0iODAiIHdpZHRoPSIxMDAiIGhlaWdodD0iNjAiIGZpbGw9IiM5Q0EzQUYiLz4KPHJlY3QgeD0iMjUwIiB5PSI4MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K';">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Modern Classrooms</h3>
+                    <p class="text-gray-600">Well-equipped classrooms with educational materials and comfortable learning environment.</p>
+                </div>
+            </div>
+
+            <!-- Playground -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="relative h-48">
+                    <img src="{% static 'images/school-courtyard.jpg' %}" 
+                         alt="School Playground" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDQwMCAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTkyIiBmaWxsPSIjRjBGREY0Ii8+CjxyZWN0IHg9IjAiIHk9IjE0MCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1MiIgZmlsbD0iIzY2QkI2QSIvPgo8Y2lyY2xlIGN4PSIzMDAiIGN5PSI4MCIgcj0iMzAiIGZpbGw9IiMyMkM1NUUiLz4KPHJlY3QgeD0iNTAiIHk9IjYwIiB3aWR0aD0iNjAiIGhlaWdodD0iNDAiIGZpbGw9IiMzQjgyRjYiLz4KPC9zdmc+Cg==';">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Safe Playground</h3>
+                    <p class="text-gray-600">Secure outdoor play area with swings and recreational facilities for physical development.</p>
+                </div>
+            </div>
+
+            <!-- School Building -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="relative h-48">
+                    <img src="{% static 'images/school-exterior.jpg' %}" 
+                         alt="School Building" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDQwMCAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMTkyIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgOTZMMTYwIDY0SDY0VjEyOEgzMzZWMTI4TDI0MCA2NEwyMDAgOTZaIiBmaWxsPSIjOUNBM0FGIi8+CjxyZWN0IHg9IjEwMCIgeT0iMTAwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIGZpbGw9IiM2Mzc0OEYiLz4KPHJlY3QgeD0iMTQwIiB5PSIxMDAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyOCIgZmlsbD0iIzYzNzQ4RiIvPgo8cmVjdCB4PSIyNDAiIHk9IjEwMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjI4IiBmaWxsPSIjNjM3NDhGIi8+CjxyZWN0IHg9IjI4MCIgeT0iMTAwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjgiIGZpbGw9IiM2Mzc0OEYiLz4KPC9zdmc+Cg==';">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">School Building</h3>
+                    <p class="text-gray-600">Well-maintained building structure providing a conducive learning environment.</p>
+                </div>
             </div>
         </div>
     </div>

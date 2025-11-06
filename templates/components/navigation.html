@@ -1,12 +1,21 @@
+{% load static %}
 <!-- Navigation -->
 <nav class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
             <!-- Logo and School Name -->
             <div class="flex items-center">
-                <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold text-blue-600">Morning Star Academy</h1>
-                    <p class="text-xs text-gray-500 hidden sm:block">Tamale, Gbanyamli</p>
+                <div class="flex-shrink-0 flex items-center">
+                    <!-- School Logo -->
+                    <img src="{% static 'images/logo.png' %}" 
+                         alt="Morning Star Academy Logo" 
+                         class="h-10 w-10 mr-3"
+                         onerror="this.style.display='none';">
+                    
+                    <div>
+                        <h1 class="text-2xl font-bold text-blue-600">Morning Star Academy</h1>
+                        <p class="text-xs text-gray-500 hidden sm:block">Tamale, Gbanyamli</p>
+                    </div>
                 </div>
             </div>
 
