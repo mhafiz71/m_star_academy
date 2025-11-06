@@ -10,14 +10,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>{% block title %}Morning Star Academy{% endblock %}</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}">
     <link rel="icon" type="image/svg+xml" sizes="16x16" href="{% static 'images/favicon-16x16.svg' %}">
     <link rel="icon" type="image/svg+xml" sizes="32x32" href="{% static 'images/favicon.svg' %}">
     <link rel="apple-touch-icon" href="{% static 'images/favicon.svg' %}">
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 
-    <!-- PWA Meta Tags -->
     <meta name="application-name" content="Morning Star Academy">
     <meta name="msapplication-TileColor" content="#1e40af">
     <meta name="msapplication-TileImage" content="{% static 'images/favicon.svg' %}">
@@ -26,28 +24,20 @@
     {% tailwind_css %}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="{% static 'css/images.css' %}" rel="stylesheet">
-    <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body class="bg-gray-50 font-sans">
-    <!-- Navigation -->
     {% include 'components/navigation.html' %}
 
-    <!-- Main Content -->
     <main>
         {% block content %}
         {% endblock %}
     </main>
 
-    <!-- Footer -->
     {% include 'components/footer.html' %}
-
-    <!-- Loading Component -->
     {% include 'components/loading.html' %}
-
-    <!-- Mobile Optimizations -->
     <style>
         /* Improve touch targets for mobile */
         @media (max-width: 768px) {
@@ -99,7 +89,7 @@
         }
     </style>
 
-    <!-- Mobile Menu JavaScript -->
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const mobileMenuButton = document.querySelector('.mobile-menu-button');

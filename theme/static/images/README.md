@@ -1,42 +1,26 @@
 # Morning Star Academy Images
 
-This directory contains images for the Morning Star Academy website.
-
-## Current Images ✅
+## Current Images
 
 ### School Photos
-- `school-exterior.jpg` - Main school building exterior view
-- `school-courtyard.jpg` - School courtyard with playground and swings
-- `school-signage.jpg` - School sign with "Morning Star International School" logo
-- `students-uniforms.jpg` - Students in their distinctive blue school uniforms
-- `students-uniforms-2.jpg` - Additional photo of students in uniforms
+- `school-exterior.jpg` - Main school building
+- `school-courtyard.jpg` - Playground with swings
+- `school-signage.jpg` - School sign with logo
+- `students-uniforms.jpg` - Students in blue uniforms
 - `classroom-interior.jpg` - Classroom environment
 
-### Logo and Branding
-- `logo.png` - School logo for navigation
-- `logo-white.png` - White version of logo for dark backgrounds
+### Logos & Icons
+- `logo.svg` - Main SVG logo
+- `logo-white.svg` - White version for dark backgrounds
+- `logo-simple.svg` - Simplified version for small sizes
+- `favicon.svg` - Website favicon
+- `favicon-16x16.svg` - Small favicon
 
-## Image Usage in Templates
+## Usage
+Images are used throughout the application for:
+- Hero sections and backgrounds
+- Gallery displays with hover effects
+- Navigation branding
+- Favicon and PWA icons
 
-### Home Page (`templates/core/home.html`)
-- Hero section: `school-exterior.jpg`
-- Gallery: `school-exterior.jpg`, `students-uniforms.jpg`, `school-courtyard.jpg`
-
-### Application Form (`templates/applications/apply.html`)
-- Hero background: `school-signage.jpg`
-- Hero side image: `students-uniforms.jpg`
-
-### About Page (`templates/core/about.html`)
-- Hero background: `school-exterior.jpg`
-- School profile: `school-signage.jpg`
-- Facilities: `classroom-interior.jpg`, `school-courtyard.jpg`, `school-exterior.jpg`
-- Logo: `logo-white.png`
-
-### Navigation (`templates/components/navigation.html`)
-- Logo: `logo.png`
-
-## Image Specifications
-- Format: JPG for photos, PNG for logos
-- All images are web-optimized and responsive
-- Fallback systems implemented for graceful degradation
-- Mobile-friendly display with proper aspect ratios
+All images are optimized for web and mobile devices.

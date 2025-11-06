@@ -1,12 +1,12 @@
 {% load static %}
-<!-- Navigation -->
+
 <nav class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
-            <!-- Logo and School Name -->
+            
             <div class="flex items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <!-- School Logo -->
+                    
                     <img src="{% static 'images/logo-simple.svg' %}" 
                          alt="Morning Star Academy Logo" 
                          class="h-10 w-10 mr-3"
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <!-- Desktop Navigation -->
+            
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{% url 'core:home' %}"
                     class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
@@ -44,7 +44,7 @@
                 </a>
                 {% endif %}
 
-                <!-- Auth Links -->
+                
                 {% if user.is_authenticated %}
                 <div class="flex items-center space-x-4">
                     <span class="text-sm text-gray-600">Welcome, {{ user.first_name|default:user.username }}</span>
@@ -55,19 +55,19 @@
                 {% endif %}
             </div>
 
-            <!-- Mobile menu button -->
+            
             <div class="md:hidden">
                 <button type="button"
                     class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                     aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
-                    <!-- Hamburger icon -->
+                    
                     <svg class="hamburger-icon block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                    <!-- Close icon -->
+                    
                     <svg class="close-icon hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation -->
+        
             <div class="hidden md:hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     <a href="{% url 'core:home' %}"
@@ -103,7 +103,7 @@
                 </a>
                 {% endif %}
 
-                <!-- Mobile Auth Links -->
+                
                 <div class="border-t border-gray-200 pt-4 mt-4">
                     {% if user.is_authenticated %}
                     <div class="px-3 py-2">

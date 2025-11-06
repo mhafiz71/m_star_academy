@@ -4,9 +4,9 @@
 {% block title %}Apply - Morning Star Academy{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
+
 <section class="relative bg-gradient-to-r from-blue-600 to-blue-700 py-16 overflow-hidden">
-    <!-- Background Image -->
+    
     <div class="absolute inset-0 opacity-20">
         <img src="{% static 'images/school-signage.jpg' %}" 
              alt="Morning Star Academy" 
@@ -44,7 +44,7 @@
                          class="rounded-xl shadow-2xl w-full h-64 object-cover"
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     
-                    <!-- Fallback content -->
+                    
                     <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 h-64 flex items-center justify-center" style="display: none;">
                         <div class="text-center text-white">
                             <svg class="w-16 h-16 mx-auto mb-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,11 +60,11 @@
     </div>
 </section>
 
-<!-- Application Form Section -->
+
 <section class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Messages -->
+        
         {% if messages %}
         {% for message in messages %}
         <div
@@ -74,12 +74,12 @@
         {% endfor %}
         {% endif %}
 
-        <!-- Form -->
+        
         <div class="bg-white rounded-xl shadow-lg overflow-hidden">
             <form method="post" novalidate class="divide-y divide-gray-200">
                 {% csrf_token %}
 
-                <!-- Student Information Section -->
+                
                 <div class="mb-8 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
                     <h2 class="text-xl font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
                         <svg class="w-6 h-6 inline-block mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +113,7 @@
                     </div>
                 </div>
 
-                <!-- Academic Information Section -->
+                
                 <div class="mb-8 p-6 bg-white rounded-lg shadow-sm border border-gray-200">
                     <h2 class="text-xl font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">
                         <svg class="w-6 h-6 inline-block mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,7 +136,7 @@
                     </div>
                 </div>
 
-                <!-- Guardian Information Section -->
+                
                 <div class="form-section">
                     <h2 class="form-section-title">
                         <svg class="w-6 h-6 inline-block mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
 
-                <!-- Emergency Contact Section -->
+                
                 <div class="form-section">
                     <h2 class="form-section-title">
                         <svg class="w-6 h-6 inline-block mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -217,7 +217,7 @@
                     </div>
                 </div>
 
-                <!-- Additional Information Section -->
+                
                 <div class="form-section">
                     <h2 class="form-section-title">
                         <svg class="w-6 h-6 inline-block mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -253,7 +253,7 @@
                     </div>
                 </div>
 
-                <!-- Form Errors -->
+                
                 {% if form.non_field_errors %}
                 <div class="form-section">
                     <div class="p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -271,7 +271,7 @@
                 </div>
                 {% endif %}
 
-                <!-- Submit Button -->
+                
                 <div class="form-section text-center">
                     <button type="submit"
                         class="btn-primary px-12 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
@@ -288,7 +288,7 @@
             </form>
         </div>
 
-        <!-- Information Box -->
+        
         <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
             <h3 class="text-lg font-semibold text-blue-900 mb-2">Important Information</h3>
             <ul class="text-sm text-blue-800 space-y-1">

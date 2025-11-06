@@ -4,7 +4,6 @@
 {% block title %}Home - Morning Star Academy{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
 <section class="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -34,15 +33,14 @@
                 </div>
             </div>
             <div class="relative">
-                <!-- School Image -->
                 <div class="relative rounded-2xl overflow-hidden shadow-xl">
-                    <img src="{% static 'images/students-uniforms.jpg' %}" 
-                         alt="Morning Star Academy School Building" 
-                         class="w-full h-80 object-cover"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <img src="{% static 'images/students-uniforms.jpg' %}" alt="Morning Star Academy School Building"
+                        class="w-full h-80 object-cover"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
                     
-                    <!-- Fallback content when image is not available -->
-                    <div class="bg-blue-100 rounded-2xl p-8 shadow-lg h-80 flex items-center justify-center" style="display: none;">
+                    <div class="bg-blue-100 rounded-2xl p-8 shadow-lg h-80 flex items-center justify-center"
+                        style="display: none;">
                         <div class="bg-white rounded-xl p-6 shadow-md w-full">
                             <h3 class="text-xl font-semibold text-gray-900 mb-4">Quick Facts</h3>
                             <div class="space-y-3">
@@ -65,8 +63,8 @@
                             </div>
                         </div>
                     </div>
+
                     
-                    <!-- Image overlay with school info -->
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
                         <div class="p-6 text-white">
                             <h3 class="text-xl font-bold mb-2">Morning Star International School</h3>
@@ -79,7 +77,7 @@
     </div>
 </section>
 
-<!-- Features Section -->
+
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -91,7 +89,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Feature 1 -->
+            
             <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +105,7 @@
                 </p>
             </div>
 
-            <!-- Feature 2 -->
+            
             <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -123,7 +121,7 @@
                 </p>
             </div>
 
-            <!-- Feature 3 -->
+            
             <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,7 +136,7 @@
                 </p>
             </div>
 
-            <!-- Feature 4 -->
+            
             <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +151,7 @@
                 </p>
             </div>
 
-            <!-- Feature 5 -->
+            
             <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -168,7 +166,7 @@
                 </p>
             </div>
 
-            <!-- Feature 6 -->
+            
             <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,7 +184,7 @@
     </div>
 </section>
 
-<!-- Statistics Section -->
+
 <section class="py-16 bg-blue-600">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -215,7 +213,7 @@
     </div>
 </section>
 
-<!-- School Gallery Section -->
+
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -224,16 +222,17 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- School Building -->
-            <div class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            
+            <div
+                class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div class="relative h-64">
-                    <img src="{% static 'images/school-exterior.jpg' %}" 
-                         alt="School Building Exterior" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTI4TDE2MCA5Nkg2NFYxNjBIMzM2VjE2MEwyNDAgOTZMMjAwIDEyOFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxODAiIHk9IjEwOCI+CjxwYXRoIGQ9Ik0xMiAyTDIgN0wyIDEySDVWMjJIMTlWMTJIMjJMMTIgMloiIGZpbGw9IiM2Mzc0OEYiLz4KPC9zdmc+Cg==';">
+                    <img src="{% static 'images/school-exterior.jpg' %}" alt="School Building Exterior"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTI4TDE2MCA5Nkg2NFYxNjBIMzM2VjE2MEwyNDAgOTZMMjAwIDEyOFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxODAiIHk9IjEwOCI+CjxwYXRoIGQ9Ik0xMiAyTDIgN0wyIDEySDVWMjJIMTlWMTJIMjJMMTIgMloiIGZpbGw9IiM2Mzc0OEYiLz4KPC9zdmc+Cg==';">
+
                     
-                    <!-- Hover Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                         <div class="p-6 text-white w-full">
                             <h3 class="text-lg font-bold mb-1">School Building</h3>
                             <p class="text-sm opacity-90">Modern classrooms and facilities</p>
@@ -242,16 +241,17 @@
                 </div>
             </div>
 
-            <!-- Students in Uniforms -->
-            <div class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            
+            <div
+                class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div class="relative h-64">
-                    <img src="{% static 'images/students-uniforms.jpg' %}" 
-                         alt="Students in School Uniforms" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRUZGNkZGIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMzQjgyRjYiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMTAwIiByPSIyMCIgZmlsbD0iIzNCODJGNiIvPgo8cmVjdCB4PSIxMzAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMzM3NEU5Ii8+CjxyZWN0IHg9IjIzMCIgeT0iMTIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNjAiIGZpbGw9IiMzMzc0RTkiLz4KPC9zdmc+Cg==';">
+                    <img src="{% static 'images/students-uniforms.jpg' %}" alt="Students in School Uniforms"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRUZGNkZGIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMzQjgyRjYiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMTAwIiByPSIyMCIgZmlsbD0iIzNCODJGNiIvPgo8cmVjdCB4PSIxMzAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMzM3NEU5Ii8+CjxyZWN0IHg9IjIzMCIgeT0iMTIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNjAiIGZpbGw9IiMzMzc0RTkiLz4KPC9zdmc+Cg==';">
+
                     
-                    <!-- Hover Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                         <div class="p-6 text-white w-full">
                             <h3 class="text-lg font-bold mb-1">Our Students</h3>
                             <p class="text-sm opacity-90">Proud in their blue uniforms</p>
@@ -260,16 +260,17 @@
                 </div>
             </div>
 
-            <!-- School Playground -->
-            <div class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            
+            <div
+                class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div class="relative h-64">
-                    <img src="{% static 'images/school-courtyard.jpg' %}" 
-                         alt="School Playground and Courtyard" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjBGREY0Ii8+CjxyZWN0IHg9IjUwIiB5PSIxODAiIHdpZHRoPSIzMDAiIGhlaWdodD0iNDAiIGZpbGw9IiM2NkJCNkEiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iIzIyQzU1RSIvPgo8cmVjdCB4PSIxMDAiIHk9IjgwIiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIGZpbGw9IiMzQjgyRjYiLz4KPC9zdmc+Cg==';">
+                    <img src="{% static 'images/school-courtyard.jpg' %}" alt="School Playground and Courtyard"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjBGREY0Ii8+CjxyZWN0IHg9IjUwIiB5PSIxODAiIHdpZHRoPSIzMDAiIGhlaWdodD0iNDAiIGZpbGw9IiM2NkJCNkEiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iIzIyQzU1RSIvPgo8cmVjdCB4PSIxMDAiIHk9IjgwIiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIGZpbGw9IiMzQjgyRjYiLz4KPC9zdmc+Cg==';">
+
                     
-                    <!-- Hover Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                         <div class="p-6 text-white w-full">
                             <h3 class="text-lg font-bold mb-1">Playground</h3>
                             <p class="text-sm opacity-90">Safe play area for students</p>
@@ -281,28 +282,28 @@
     </div>
 </section>
 
-<!-- Call to Action Section -->
+
 <section class="py-16 bg-gray-50"></section>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Join Our Community?</h2>
-        <p class="text-lg text-gray-600 mb-8">
-            Take the first step towards your child's bright future. Our admissions process is simple and
-            straightforward.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{% url 'applications:apply' %}"
-                class="btn-primary inline-flex items-center justify-center px-8 py-3 text-lg font-medium">
-                Start Application
-                <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6">
-                    </path>
-                </svg>
-            </a>
-            <a href="{% url 'core:about' %}"
-                class="btn-secondary inline-flex items-center justify-center px-8 py-3 text-lg font-medium">
-                Learn About Us
-            </a>
-        </div>
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Join Our Community?</h2>
+    <p class="text-lg text-gray-600 mb-8">
+        Take the first step towards your child's bright future. Our admissions process is simple and
+        straightforward.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="{% url 'applications:apply' %}"
+            class="btn-primary inline-flex items-center justify-center px-8 py-3 text-lg font-medium">
+            Start Application
+            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6">
+                </path>
+            </svg>
+        </a>
+        <a href="{% url 'core:about' %}"
+            class="btn-secondary inline-flex items-center justify-center px-8 py-3 text-lg font-medium">
+            Learn About Us
+        </a>
     </div>
+</div>
 </section>
 {% endblock %}
