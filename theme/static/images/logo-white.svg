@@ -1,0 +1,67 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield Background -->
+  <path d="M60 10 L20 25 L20 70 Q20 90 60 110 Q100 90 100 70 L100 25 Z" 
+        fill="#ffffff" stroke="#f1f5f9" stroke-width="2"/>
+  
+  <!-- Inner Shield -->
+  <path d="M60 18 L28 30 L28 68 Q28 82 60 98 Q92 82 92 68 L92 30 Z" 
+        fill="#f8fafc" opacity="0.9"/>
+  
+  <!-- Open Book -->
+  <g transform="translate(60, 55)">
+    <!-- Book Base -->
+    <ellipse cx="0" cy="8" rx="18" ry="3" fill="#1e293b" opacity="0.2"/>
+    
+    <!-- Left Page -->
+    <path d="M-18 5 Q-18 -5 -8 -8 L0 -5 L0 8 Q-10 5 -18 8 Z" 
+          fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+    
+    <!-- Right Page -->
+    <path d="M18 5 Q18 -5 8 -8 L0 -5 L0 8 Q10 5 18 8 Z" 
+          fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+    
+    <!-- Book Spine -->
+    <line x1="0" y1="-5" x2="0" y2="8" stroke="#64748b" stroke-width="1"/>
+    
+    <!-- Text Lines on Pages -->
+    <g stroke="#475569" stroke-width="0.3" opacity="0.7">
+      <line x1="-14" y1="-2" x2="-4" y2="-2"/>
+      <line x1="-14" y1="0" x2="-4" y2="0"/>
+      <line x1="-14" y1="2" x2="-4" y2="2"/>
+      <line x1="4" y1="-2" x2="14" y2="-2"/>
+      <line x1="4" y1="0" x2="14" y2="0"/>
+      <line x1="4" y1="2" x2="14" y2="2"/>
+    </g>
+  </g>
+  
+  <!-- Three Stars Above Book -->
+  <g fill="#fbbf24" stroke="#f59e0b" stroke-width="0.5">
+    <!-- Left Star -->
+    <path d="M45 35 L47 41 L53 41 L48 45 L50 51 L45 47 L40 51 L42 45 L37 41 L43 41 Z"/>
+    
+    <!-- Center Star (Larger) -->
+    <path d="M60 28 L63 36 L71 36 L65 41 L68 49 L60 44 L52 49 L55 41 L49 36 L57 36 Z"/>
+    
+    <!-- Right Star -->
+    <path d="M75 35 L77 41 L83 41 L78 45 L80 51 L75 47 L70 51 L72 45 L67 41 L73 41 Z"/>
+  </g>
+  
+  <!-- School Motto Banner -->
+  <g transform="translate(60, 85)">
+    <path d="M-35 0 Q-35 -3 -32 -3 L32 -3 Q35 -3 35 0 L35 6 Q35 9 32 9 L-32 9 Q-35 9 -35 6 Z" 
+          fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    
+    <!-- Motto Text -->
+    <text x="0" y="4" text-anchor="middle" font-family="serif" font-size="6" font-weight="bold" fill="#ffffff">
+      STRIVING EXCELLENCE TO SERVE
+    </text>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <g stroke="#64748b" stroke-width="1" fill="none" opacity="0.6">
+    <!-- Left Flourish -->
+    <path d="M25 45 Q30 40 35 45"/>
+    <!-- Right Flourish -->
+    <path d="M95 45 Q90 40 85 45"/>
+  </g>
+</svg>

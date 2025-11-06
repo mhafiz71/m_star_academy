@@ -4,7 +4,7 @@ from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = config('SECRET_KEY', default='django-insecure-317gvf*yb$of8e%%1g19lzdcuw@l7r*u^u#nyo7x5p@md&i=y_')
+SECRET_KEY = config('SECRET_KEY')
 
 INSTALLED_APPS = [
     'django.contrib.admin',

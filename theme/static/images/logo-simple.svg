@@ -1,0 +1,35 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield Background -->
+  <path d="M20 2 L6 8 L6 24 Q6 30 20 36 Q34 30 34 24 L34 8 Z" 
+        fill="#1e40af" stroke="#1d4ed8" stroke-width="1"/>
+  
+  <!-- Inner Shield -->
+  <path d="M20 5 L9 9 L9 23 Q9 27 20 32 Q31 27 31 23 L31 9 Z" 
+        fill="#3b82f6"/>
+  
+  <!-- Open Book -->
+  <g transform="translate(20, 18)">
+    <!-- Left Page -->
+    <path d="M-6 1 Q-6 -2 -3 -3 L0 -2 L0 3 Q-3 2 -6 3 Z" 
+          fill="#ffffff"/>
+    
+    <!-- Right Page -->
+    <path d="M6 1 Q6 -2 3 -3 L0 -2 L0 3 Q3 2 6 3 Z" 
+          fill="#ffffff"/>
+    
+    <!-- Book Spine -->
+    <line x1="0" y1="-2" x2="0" y2="3" stroke="#e2e8f0" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Three Stars -->
+  <g fill="#fbbf24">
+    <!-- Left Star -->
+    <path d="M15 12 L15.5 13.5 L17 13.5 L15.8 14.3 L16.3 15.8 L15 14.8 L13.7 15.8 L14.2 14.3 L13 13.5 L14.5 13.5 Z"/>
+    
+    <!-- Center Star -->
+    <path d="M20 9 L20.8 11.2 L23 11.2 L21.1 12.6 L21.9 14.8 L20 13.4 L18.1 14.8 L18.9 12.6 L17 11.2 L19.2 11.2 Z"/>
+    
+    <!-- Right Star -->
+    <path d="M25 12 L25.5 13.5 L27 13.5 L25.8 14.3 L26.3 15.8 L25 14.8 L23.7 15.8 L24.2 14.3 L23 13.5 L24.5 13.5 Z"/>
+  </g>
+</svg>

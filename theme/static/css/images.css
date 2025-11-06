@@ -24,6 +24,44 @@
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
 }
 
+/* Image card hover effects */
+.image-card {
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.image-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Consistent card heights */
+.facility-card {
+    height: 16rem; /* 256px */
+}
+
+.gallery-card {
+    height: 16rem; /* 256px */
+}
+
+/* Image overlay animations */
+.image-overlay {
+    transition: opacity 0.3s ease;
+}
+
+.group:hover .image-overlay {
+    opacity: 1;
+}
+
+/* Image zoom effect */
+.image-zoom {
+    transition: transform 0.3s ease;
+}
+
+.group:hover .image-zoom {
+    transform: scale(1.05);
+}
+
 /* Logo styles */
 .school-logo {
     max-height: 40px;

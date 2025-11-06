@@ -225,43 +225,55 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- School Building -->
-            <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                <img src="{% static 'images/school-exterior.jpg' %}" 
-                     alt="School Building Exterior" 
-                     class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTI4TDE2MCA5Nkg2NFYxNjBIMzM2VjE2MEwyNDAgOTZMMjAwIDEyOFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxODAiIHk9IjEwOCI+CjxwYXRoIGQ9Ik0xMiAyTDIgN0wyIDEySDVWMjJIMTlWMTJIMjJMMTIgMloiIGZpbGw9IiM2Mzc0OEYiLz4KPC9zdmc+Cg==';">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h3 class="font-semibold">School Building</h3>
-                        <p class="text-sm opacity-90">Modern classrooms and facilities</p>
+            <div class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="relative h-64">
+                    <img src="{% static 'images/school-exterior.jpg' %}" 
+                         alt="School Building Exterior" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTI4TDE2MCA5Nkg2NFYxNjBIMzM2VjE2MEwyNDAgOTZMMjAwIDEyOFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4PSIxODAiIHk9IjEwOCI+CjxwYXRoIGQ9Ik0xMiAyTDIgN0wyIDEySDVWMjJIMTlWMTJIMjJMMTIgMloiIGZpbGw9IiM2Mzc0OEYiLz4KPC9zdmc+Cg==';">
+                    
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6 text-white w-full">
+                            <h3 class="text-lg font-bold mb-1">School Building</h3>
+                            <p class="text-sm opacity-90">Modern classrooms and facilities</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Students in Uniforms -->
-            <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                <img src="{% static 'images/students-uniforms.jpg' %}" 
-                     alt="Students in School Uniforms" 
-                     class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRUZGNkZGIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMzQjgyRjYiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMTAwIiByPSIyMCIgZmlsbD0iIzNCODJGNiIvPgo8cmVjdCB4PSIxMzAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMzM3NEU5Ii8+CjxyZWN0IHg9IjIzMCIgeT0iMTIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNjAiIGZpbGw9IiMzMzc0RTkiLz4KPC9zdmc+Cg==';">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h3 class="font-semibold">Our Students</h3>
-                        <p class="text-sm opacity-90">Proud in their blue uniforms</p>
+            <div class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="relative h-64">
+                    <img src="{% static 'images/students-uniforms.jpg' %}" 
+                         alt="Students in School Uniforms" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRUZGNkZGIi8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iMjAiIGZpbGw9IiMzQjgyRjYiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iMTAwIiByPSIyMCIgZmlsbD0iIzNCODJGNiIvPgo8cmVjdCB4PSIxMzAiIHk9IjEyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjMzM3NEU5Ii8+CjxyZWN0IHg9IjIzMCIgeT0iMTIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNjAiIGZpbGw9IiMzMzc0RTkiLz4KPC9zdmc+Cg==';">
+                    
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6 text-white w-full">
+                            <h3 class="text-lg font-bold mb-1">Our Students</h3>
+                            <p class="text-sm opacity-90">Proud in their blue uniforms</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- School Playground -->
-            <div class="relative group overflow-hidden rounded-xl shadow-lg">
-                <img src="{% static 'images/school-courtyard.jpg' %}" 
-                     alt="School Playground and Courtyard" 
-                     class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjBGREY0Ii8+CjxyZWN0IHg9IjUwIiB5PSIxODAiIHdpZHRoPSIzMDAiIGhlaWdodD0iNDAiIGZpbGw9IiM2NkJCNkEiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iIzIyQzU1RSIvPgo8cmVjdCB4PSIxMDAiIHk9IjgwIiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIGZpbGw9IiMzQjgyRjYiLz4KPC9zdmc+Cg==';">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="absolute bottom-4 left-4 text-white">
-                        <h3 class="font-semibold">Playground</h3>
-                        <p class="text-sm opacity-90">Safe play area for students</p>
+            <div class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="relative h-64">
+                    <img src="{% static 'images/school-courtyard.jpg' %}" 
+                         alt="School Playground and Courtyard" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDQwMCAyNTYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjU2IiBmaWxsPSIjRjBGREY0Ii8+CjxyZWN0IHg9IjUwIiB5PSIxODAiIHdpZHRoPSIzMDAiIGhlaWdodD0iNDAiIGZpbGw9IiM2NkJCNkEiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iIzIyQzU1RSIvPgo8cmVjdCB4PSIxMDAiIHk9IjgwIiB3aWR0aD0iODAiIGhlaWdodD0iNDAiIGZpbGw9IiMzQjgyRjYiLz4KPC9zdmc+Cg==';">
+                    
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div class="p-6 text-white w-full">
+                            <h3 class="text-lg font-bold mb-1">Playground</h3>
+                            <p class="text-sm opacity-90">Safe play area for students</p>
+                        </div>
                     </div>
                 </div>
             </div>

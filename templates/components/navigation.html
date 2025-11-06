@@ -7,10 +7,10 @@
             <div class="flex items-center">
                 <div class="flex-shrink-0 flex items-center">
                     <!-- School Logo -->
-                    <img src="{% static 'images/logo.png' %}" 
+                    <img src="{% static 'images/logo-simple.svg' %}" 
                          alt="Morning Star Academy Logo" 
                          class="h-10 w-10 mr-3"
-                         onerror="this.style.display='none';">
+                         onerror="this.src='{% static 'images/logo.svg' %}'; this.onerror=null;">
                     
                     <div>
                         <h1 class="text-2xl font-bold text-blue-600">Morning Star Academy</h1>
